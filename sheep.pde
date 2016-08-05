@@ -1,7 +1,10 @@
+PImage photo;
 int step=0,branch=0;
 void setup(){
   size(800,600);
   background(0);
+  photo = loadImage("1.jpg");
+  image(photo, 600, 450);
   textSize(25);
   
   textLeading(30);
@@ -11,13 +14,11 @@ void setup(){
 }
 
 void draw(){
-  //textFont
+
+  image(photo, 600, 450);
   textSize(25);
   textAlign(CENTER,CENTER);
   textLeading(25);
-  
-  //noLoop();
-  //if(step==1){
 }
 
 void mousePressed(){
@@ -29,8 +30,8 @@ void mousePressed(){
   }
 }
 void keyPressed() {
-  println(key);
- // textSize(20);
+  println(step);
+  //infor(key);
   if (key == '1') {
     if(step==1){
        background(0);
@@ -50,8 +51,9 @@ void keyPressed() {
     }
     else if(step==6||step==2 && branch==1){
        background(0);
-       text("The food was fodders.\nYou found fodders delicious and lived a happy life as a sheep", 400,260);
+       text("The food was fodder.\nYou found fodder delicious and lived a happy life as a sheep", 400,260);
        step=1000;
+       //infor();
     }
     
     else if(step==3 && branch==2){
@@ -88,7 +90,7 @@ void keyPressed() {
       }
       else if(step==5 && branch==1){
        background(0);
-       text("Oh! Wonderful dance! Your uncle didn't recognized you.", 400,260);
+       text("Oh! Wonderful dance! Your uncle didn't recognize you.", 400,260);
        text("However, you could meet your family at table", 400,300);
        step=1000;
       }
@@ -99,7 +101,7 @@ void keyPressed() {
         }
    }
    else if (key == '2'){
-      if(step==1) {
+       if(step==1) {
         background(0);
         text("It's time to escape! From the door or window?", 400,260);
         text("Press 1 for the door or 2 for the window",400,300); 
@@ -135,6 +137,7 @@ void keyPressed() {
        background(0);
        text("Wow! You met a BBQ festival.\" Enjoy yourself\"\nFree tips:East or West, Home...", 400,260);
        step++;
+       step=1000;
       }
        else if(step==3 && branch==4){
        background(0);
@@ -165,10 +168,33 @@ void keyPressed() {
       }
        else if(step==5 && branch==2){
        background(0);
-       text("The wolf fell in love with you, such a unique sheep. Wish you happiness", 400,260);
+       text("The wolf fell in love with you,\nsuch a unique sheep.\nWish you happiness", 400,260);
        step=1000;
+       //infor();
       }
       
   }
+  else if(key=='3'){
+    branch=0;
+    background(0);
+   text("Close your eyes and continue sleeping or not?", 400,260);
+   text("Press 1 for Yes or 2 for No",400,300);  
+   step=1; 
+  }
+   else if(key=='4'){
+   exit();
+   
+  }
+  infor(step);
  
+}
+
+void infor(int step){
+  //println(step); 
+  if(step==1000){
+   textSize(30);  
+   textAlign(CENTER,CENTER);
+  text("The End.\nPress 3 to restart.\nPress 4 to exit.",400,500); 
+}
+  
 }
